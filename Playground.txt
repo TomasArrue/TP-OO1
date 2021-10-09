@@ -1,0 +1,186 @@
+"primero crearemos la aplicacion Balp"
+balp := Balp new.
+
+"CONSIGNA 2-A)Registrarme en la aplicación (con nombre, dni, celular y correo electrónico)"
+"ahora creamos los empleadso"
+"crearemos tres empleados jerarquicos"
+empRamonJer := Empleado empleadoCon: 'Ramón' unApellido: 'Porras' unDni: 26964229 unCelular: 2216548321 unCorreo: 'ramonporras@gmail.com' unaCategoria: Jerarquico new.
+empRogelioJer := Empleado empleadoCon: 'Rogelio' unApellido: 'López' unDni: 27981983 unCelular: 22168425913 unCorreo: 'rogeliolopez@gmail.com' unaCategoria: Jerarquico new.
+empLidiaJer := Empleado empleadoCon: 'Lidia' unApellido: 'Cabezas' unDni: 253964267 unCelular: 22168247396 unCorreo: 'lidiacabezas@hotmail.com' unaCategoria: Jerarquico new.
+
+"CONSIGNA 3-A)Registrarme en la aplicación (con nombre, dni, celular y correo electrónico)"
+"crearemos tres empleados administrativos"
+empAntinoAdm := Empleado empleadoCon: 'Antoni' unApellido: 'Rio' unDni: 20964345 unCelular: 2216758943 unCorreo: 'antonirio@gmail.com' unaCategoria: Administrativo new.
+empClaradm := Empleado empleadoCon: 'Clara' unApellido: 'Kaur' unDni: 24567267 unCelular: 2216249535 unCorreo: 'clarakaur@gmail.com' unaCategoria: Administrativo new.
+empIreneAdm := Empleado empleadoCon: 'Irene' unApellido: 'Bello' unDni: 24964258 unCelular: 2216455684 unCorreo: 'irenebello@hot.com' unaCategoria: Administrativo new.
+
+"cargamos los empleados al sistema"
+"cargamos a los empleados jerarquicos"
+balp agregarEmpleado: empRamonJer.
+balp agregarEmpleado: empRogelioJer.
+balp agregarEmpleado: empLidiaJer.
+
+"cargamos a los empleados administrativos"
+balp agregarEmpleado: empAntinoAdm.
+balp agregarEmpleado: empClaradm.
+balp agregarEmpleado: empIreneAdm.
+
+
+"CONSIGNA 2-C)Poder aceptar o rechazar el registro de un empleado administrativo"
+"los empleados administrativos deben ser validados por los empleados jerarquicos"
+balp validarEmpAdm: empAntinoAdm unJeraquico: empRamonJer.
+balp validarEmpAdm: empClaradm unJeraquico: empRogelioJer.
+balp validarEmpAdm: empIreneAdm unJeraquico: empLidiaJer.
+
+
+"CONSIGNA 1-A) poder registrar mi empresa como donante (indicando nombre de la empresa, cuit, dirección, teléfono y una persona responsable con su nombre, dni, celular y correo electrónico)"
+"creamos 3 empresas y encargados de las mismas"
+"primero los encargados"
+encargadoGonzalez := Persona personaCon: 'David' unApellido: 'Gonzalez' unCelular: 2216453490 unCorreo: 'davidgonzalez@gmail.com' unDni: 32765482.
+encargadoRamirez := Persona personaCon: 'Juan' unApellido: 'Ramirez' unCelular: 2214052284 unCorreo: 'juanramirez@hotmail.com' unDni: 30964267.
+encargadoAlvarez := Persona personaCon: 'Gustavo' unApellido: 'Alvarez' unCelular: 2215247894 unCorreo: 'gustavoalvarez@hotmail.com' unDni: 29283694.
+
+"ahora las empresas"
+empresaSancor := Empresa empresaCon: 'SanCor' unCuit: 33710593979 unaDireccion: 'Diag. 74 Nº 1909, B1900 La Plata' unTelefono: 22144269374 unaPersona: encargadoGonzalez.
+empresaMercadoLibre := Empresa empresaCon: 'Mercado Libre' unCuit: 30703088534 unaDireccion: ' Posta 4789, Buenos Aire' unTelefono: 22145659227 unaPersona: encargadoRamirez.
+empresaFravega := Empresa empresaCon: 'Fravega' unCuit: 30604324870 unaDireccion: 'C. 12 1249, B1900 La Plata' unTelefono: 22149482426 unaPersona: encargadoAlvarez.
+
+"cargamos las empresas en la aplicacion"
+balp registrarEmpresa: empresaSancor.
+balp registrarEmpresa: empresaMercadoLibre.
+balp registrarEmpresa: empresaFravega.
+
+"CONSIGNA 2-B)Poder aceptar o rechazar a una empresa que se presenta como donante"
+"las empresas deben ser validadas por un empleado Jeraquico"
+balp validarEmpresa: empresaSancor unJerarquico: empRamonJer.
+balp validarEmpresa: empresaMercadoLibre unJerarquico: empRogelioJer.
+balp validarEmpresa: empresaFravega unJerarquico: empLidiaJer.
+
+"las empresas crearan donaciones y sus respectivos productos"
+producLataTomate := Producto productoCon: 'LataTomate' unaMarca: 'Maroleo' unaVencimiento: ('29 November 2023' asDate) unaCantidad: 20.
+producLataArveja := Producto productoCon: 'LataArveja' unaMarca: 'Maroleo' unaVencimiento: ('29 November 2023' asDate) unaCantidad: 10.
+producLataChoclo := Producto productoCon: 'LataChoclo ' unaMarca: 'Maroleo' unaVencimiento: ('29 November 2023' asDate) unaCantidad: 22.
+producLataAtun := Producto productoCon: 'LataAtun' unaMarca: 'Maroleo' unaVencimiento: ('29 November 2023' asDate) unaCantidad: 33.
+producArroz := Producto productoCon: 'Arroz' unaMarca: 'Luchetti' unaVencimiento: ('29 November 2023' asDate) unaCantidad: 52.
+producAceite := Producto productoCon: 'Aceite' unaMarca: 'Luchetti' unaVencimiento: ('29 November 2023' asDate) unaCantidad: 24.
+producLecheEnPolvo := Producto productoCon: 'LecheEnPolvo' unaMarca: 'SanCor' unaVencimiento: ('29 November 2023' asDate) unaCantidad: 23.
+producHuevos := Producto productoCon: 'Huevos' unaMarca: 'Granja del Sol>' unaVencimiento: ('29 November 2023' asDate) unaCantidad: 17.
+producFideos := Producto productoCon: 'Fideos' unaMarca: 'Luchetti' unaVencimiento: ('29 November 2023' asDate) unaCantidad: 34.
+
+"CONSIGNA 1-B) ofrecer donación de mercadería indicando para la mercadería a donar: tipo de producto, marca, cantidad y fecha de vencimiento (por ejemplo, Puré de tomates, La Campagnola, 150 cajas, 31/07/2021)"
+"crearemos nueve donaciones para las empresas"
+donacion1 := Donacion new.
+donacion1 cargarProducto: producLataTomate.
+donacion1 cargarProducto: producLataArveja.
+donacion1 cargarProducto: producLataChoclo.
+donacion1 cargarProducto: producLataAtun.
+
+donacion2 := Donacion new.
+donacion2 cargarProducto: producLecheEnPolvo.
+donacion2 cargarProducto: producHuevos.
+
+donacion3 := Donacion new.
+donacion3 cargarProducto: producArroz.
+donacion3 cargarProducto: producAceite.
+donacion3 cargarProducto: producFideos.
+
+donacion4 := Donacion new.
+donacion4 cargarProducto: producLataTomate.
+donacion4 cargarProducto: producLataArveja.
+
+donacion5 := Donacion new.
+donacion5 cargarProducto: producLecheEnPolvo.
+donacion5 cargarProducto: producHuevos.
+donacion5 cargarProducto: producLataChoclo.
+
+donacion6 := Donacion new.
+donacion6 cargarProducto: producArroz.
+donacion6 cargarProducto: producAceite.
+donacion6 cargarProducto: producFideos.
+donacion6 cargarProducto: producLataAtun.
+
+donacion7 := Donacion new.
+donacion7	 cargarProducto: producLataTomate.
+donacion7 cargarProducto: producLataArveja.
+donacion7 cargarProducto: producLecheEnPolvo.
+donacion7 cargarProducto: producHuevos.
+donacion7 cargarProducto: producLataChoclo.
+donacion7 cargarProducto: producArroz.
+donacion7 cargarProducto: producAceite.
+
+donacion8 := Donacion new.
+donacion8 cargarProducto: producLecheEnPolvo.
+
+donacion9 := Donacion new.
+donacion9 cargarProducto: producFideos.
+donacion9 cargarProducto: producLataAtun.
+
+"asociamos las donaciones a la empresa"
+empresaSancor cargarDonacion: donacion1.
+empresaSancor cargarDonacion: donacion2.
+empresaMercadoLibre cargarDonacion: donacion3.
+empresaFravega cargarDonacion: donacion4.
+empresaFravega cargarDonacion: donacion5.
+empresaFravega cargarDonacion: donacion6.   
+empresaSancor cargarDonacion: donacion7.
+empresaMercadoLibre cargarDonacion: donacion8.
+empresaFravega cargarDonacion: donacion9. 
+
+"CONSIGNA 3-B) Aceptar la oferta de una donación y fijar una fecha para retirar la mercadería"
+"Balp valida las donaciones"
+"se les asigno una fecha para que su mercaderia sea retirada 
+y su estado cambio de 'sin confirmar' a 'confirmado y si retirar'"
+balp validarDonacion: donacion1 unAdministrativo: empAntinoAdm.
+balp validarDonacion: donacion2 unAdministrativo: empClaradm.
+balp validarDonacion: donacion3 unAdministrativo: empIreneAdm.
+balp validarDonacion: donacion4 unAdministrativo: empAntinoAdm.
+balp validarDonacion: donacion5 unAdministrativo: empClaradm.
+balp validarDonacion: donacion6 unAdministrativo: empIreneAdm.
+balp validarDonacion: donacion7 unAdministrativo: empIreneAdm.
+balp validarDonacion: donacion8 unAdministrativo: empIreneAdm.
+balp validarDonacion: donacion9 unAdministrativo: empIreneAdm.
+
+"CONSIGNA 3-C) Registrar que la mercadería de una donación fue retirada con fecha de retiro"
+"registrar retiro de las donaciones"
+balp registrarRetiro: empIreneAdm unaDonacion: donacion1 unaFecha: ('21 November 2019' asDate).
+balp registrarRetiro: empAntinoAdm unaDonacion: donacion2 unaFecha: (Date today).
+balp registrarRetiro: empClaradm unaDonacion: donacion3 unaFecha: (Date today).
+balp registrarRetiro: empIreneAdm unaDonacion: donacion4 unaFecha: ('21 November 2020' asDate).
+balp registrarRetiro: empAntinoAdm unaDonacion: donacion5 unaFecha: ('29 September 2020' asDate).
+balp registrarRetiro: empClaradm unaDonacion: donacion6 unaFecha: ('29 September 2021' asDate).
+balp registrarRetiro: empIreneAdm unaDonacion: donacion7 unaFecha: ('15 May 2020' asDate).
+balp registrarRetiro: empAntinoAdm unaDonacion: donacion8 unaFecha: ('19 June 2021' asDate).
+balp registrarRetiro: empClaradm unaDonacion: donacion9 unaFecha: ('9 July 2020' asDate).
+
+"CONSIGNA 3-D) Registrar el detalle de la mercadería proveniente de una donación que se ingresa en el depósito."
+"cargamos las donaciones en el depocito"
+balp registrarDeposito: donacion1 unAdministrativo: empClaradm.
+balp registrarDeposito: donacion2 unAdministrativo: empIreneAdm.
+balp registrarDeposito: donacion3 unAdministrativo: empAntinoAdm.
+balp registrarDeposito: donacion4 unAdministrativo: empClaradm.
+balp registrarDeposito: donacion5 unAdministrativo: empIreneAdm.
+balp registrarDeposito: donacion6 unAdministrativo: empAntinoAdm.
+balp registrarDeposito: donacion7 unAdministrativo: empClaradm.
+balp registrarDeposito: donacion8 unAdministrativo: empIreneAdm.
+balp registrarDeposito: donacion9 unAdministrativo: empAntinoAdm.
+
+"CONSIGNA 2-D) Consultar el listado de todos los donantes y el detalle de las donaciones efectuadas por cada uno"
+balp consultarDonantes: empRogelioJer.
+
+"CONSIGNA 4) Elaborar el conjunto de expresiones necesarias para simular en Playground la búsqueda de un donante determinado y la presentación del reporte con la lista de las donaciones que realizó en el último año (fecha de donación y lista de elementos en cada una)"
+"ahora realizaremos el reporte del ultimo año de una empresa particular"
+balp reporteDonante: empresaSancor.
+balp reporteDonante: empresaMercadoLibre.
+balp reporteDonante: empresaFravega.
+
+"CONSIGNA 3-E)Consultar todas las ofertas de donaciones existentes y su estado (aún sin confirmar, confirmadas y sin retirar, retiradas, en depósito)"
+balp consultarDonaciones: empAntinoAdm  
+
+
+
+
+
+
+
+
+
